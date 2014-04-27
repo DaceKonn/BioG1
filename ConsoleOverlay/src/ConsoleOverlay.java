@@ -11,8 +11,6 @@ public class ConsoleOverlay
 
       //  System.out.println(bm.toString());
 
-
-
         System.out.println(bm.GetGridString());
     }
 }

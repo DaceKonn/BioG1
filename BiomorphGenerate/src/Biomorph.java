@@ -1,14 +1,17 @@
 import java.util.Arrays;
 
-/**
- *
- */
 public class Biomorph
 {
     private int size;
     private int[][] grid;
     private int iterations;
 
+
+    /**
+     * An object that holds am <i>array of int[][]</i> named <b>grid</b> to in, a simple way, represent a <u><b>Biomorph</b></u>
+     * @param size Specifies the size of the biomorph as Size*Size square
+     * @param iterations Specifies how many iterations (will be/was) used to generate the Biomorph
+     */
     Biomorph(int size, int iterations)
     {
         SetSize(size);
@@ -16,6 +19,9 @@ public class Biomorph
         makeGrid();
     }
 
+    /**
+     * Creates an empty <i>array int[][]</i> named <b>grid</b> based on previously defined int <b>size</b>
+     */
     private void makeGrid()
     {
         grid = new int[size][size];
@@ -28,8 +34,17 @@ public class Biomorph
         }
     }
 
+    /**
+     * A Get method that returns a Biomorph as a array of int[][] named grid
+     * @return private int[][] grid
+     */
     public int[][] GetGrid()
     { return grid; }
+
+    /**
+     * A Get method that returns a Biomorph as a formated into string array of int[][] named grid
+     * @return string that represents the grid array int[][]
+     */
     public String GetGridString()
     {
         String output = new String();
@@ -45,6 +60,10 @@ public class Biomorph
         return output;
     }
 
+    /**
+     * A Get method
+     * @return private int size
+     */
     public int GetSize()
     { return size; }
     private void SetSize(int value)
