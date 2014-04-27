@@ -8,12 +8,11 @@ public class ConsoleOverlay
         System.out.println("BiomorphGenerate - ConsoleOverlay");
 
         Biomorph bm = new Biomorph(12,21);
-        Biomorph bsm = new Biomorph(2,2);
 
       //  System.out.println(bm.toString());
 
 
 
-        System.out.println(bm.GetGrid());
+        System.out.println(bm.GetGridString());
     }
 }
