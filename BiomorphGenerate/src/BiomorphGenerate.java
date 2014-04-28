@@ -10,5 +10,8 @@ public class BiomorphGenerate
 {
     private Biomorph biomorph;
 
+    public Complex tst;
 
+    public void test()
+    { tst = new Complex(12, 12);}
 }
