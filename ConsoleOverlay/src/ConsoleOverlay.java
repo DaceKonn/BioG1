@@ -12,8 +12,8 @@ public class ConsoleOverlay
 
       //  System.out.println(bm.toString());
         BiomorphGenerate bg = new BiomorphGenerate();
-        bg.test();
-        System.out.println(bg.tst);
+        //bg.test();
+       // System.out.println(bg.tst);
         System.out.println(bm.GetGridString());
     }
 }

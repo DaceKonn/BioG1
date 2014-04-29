@@ -5,7 +5,7 @@ public class Biomorph
     private int size;
     private int[][] grid;
     private int iterations;
-
+    private String description;
 
     /**
      * An object that holds am <i>array of int[][]</i> named <b>grid</b> to in, a simple way, represent a <u><b>Biomorph</b></u>
@@ -17,6 +17,7 @@ public class Biomorph
         SetSize(size);
         SetIterations(iterations);
         makeGrid();
+        description = "Undescribed";
     }
 
     /**
@@ -74,4 +75,8 @@ public class Biomorph
     private void SetIterations(int value)
     {iterations = value;}
 
+    public String GetDescription()
+    {return description;}
+    private void SetDescription(String value)
+    {description = value;}
 }
