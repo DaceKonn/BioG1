@@ -1,5 +1,7 @@
-import org.apache.commons.math3.complex.Complex;
+package Iterations;
 
+import Equations.Equation;
+import org.apache.commons.math3.complex.Complex;
 /**
  * Created by harold on 29.04.14.
  */
@@ -24,7 +26,7 @@ public class Iterate {
         }
         else
         {
-            //parent.println("Error: In Iterate - equation or iteration is not set");
+            //parent.println("Error: In Iterations.Iterate - equation or iteration is not set");
             return null;
         }
     }
@@ -37,7 +39,7 @@ public class Iterate {
         }
         else
         {
-           // parent.println("Error: In Iterate - equation or iteration is not set");
+           // parent.println("Error: In Iterations.Iterate - equation or iteration is not set");
             return null;
         }
     }
@@ -50,13 +52,13 @@ public class Iterate {
         }
         else
         {
-          //  parent.println("Error: In Iterate - equation or iteration is not set");
+          //  parent.println("Error: In Iterations.Iterate - equation or iteration is not set");
         }
     }
 
     public void setEquationPolynomial(Complex input, double ex, double fx, double xpa, double xpb)
     {
-       // equation = new Equation_Polynomial(parent, input, ex, fx, xpa, xpb);
+        equation = new Equations.Polynomial(input, ex, fx, xpa, xpb);
         equation_set = true;
     }
 
@@ -70,10 +72,10 @@ public class Iterate {
     {
         if (equation_set)
         {
-           // iteration = new Iteration_Picard(parent,equation,u);
+            iteration = new Picard(equation,u);
             iteration_set = true;
         }
-      //  else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+      //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
     public void setIterationMann(double alpha)
@@ -83,7 +85,7 @@ public class Iterate {
           //  iteration = new Iteration_Mann(parent,equation,alpha);
             iteration_set = true;
         }
-      //  else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+      //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
     public void setIterationIshikawa(double alpha, double beta)
@@ -93,7 +95,7 @@ public class Iterate {
         //    iteration = new Iteration_Ishikawa(parent,equation,alpha,beta);
             iteration_set = true;
         }
-      //  else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+      //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
     public void setIterationNoor(double alpha, double beta, double c)
@@ -103,7 +105,7 @@ public class Iterate {
        //     iteration = new Iteration_Noor(parent,equation,alpha,beta,c);
             iteration_set = true;
         }
-      //  else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+      //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
     public void setIterationSuantai(double alpha, double beta, double a, double b, double c)
@@ -113,7 +115,7 @@ public class Iterate {
         //    iteration = new Iteration_Suantai(parent,equation,alpha,beta,a,b,c);
             iteration_set = true;
         }
-       // else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+       // else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
     public void setIterationS(double alpha, double beta)
@@ -123,7 +125,7 @@ public class Iterate {
         //    iteration = new Iteration_S(parent,equation,alpha,beta);
             iteration_set = true;
         }
-      //  else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+      //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
     public void setIterationTwoStepMann(double alpha, double beta)
@@ -133,7 +135,7 @@ public class Iterate {
         //    iteration = new Iteration_TwoStepMann(parent,equation,alpha,beta);
             iteration_set = true;
         }
-      //  else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+      //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
     public void setIterationSP(double alpha, double beta, double c)
@@ -143,7 +145,7 @@ public class Iterate {
           //  iteration = new Iteration_SP(parent,equation,alpha,beta,c);
             iteration_set = true;
         }
-       // else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+       // else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
     public void setIterationNew(double alpha, double beta, double a, double b, double c)
@@ -153,6 +155,6 @@ public class Iterate {
        //     iteration = new Iteration_New(parent,equation,alpha,beta,a,b,c);
             iteration_set = true;
         }
-     //   else parent.println("Error: In Iterate - can't set iteration because the equation is not set");
+     //   else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 }

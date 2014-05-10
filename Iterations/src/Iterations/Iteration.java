@@ -1,3 +1,6 @@
+package Iterations;
+
+import Equations.Equation;
 import org.apache.commons.math3.complex.Complex;
 
 /**
