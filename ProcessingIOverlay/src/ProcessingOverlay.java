@@ -1,5 +1,6 @@
 import BiomorphGenerate.BiomorphGenerate;
 import Components.Drawer;
+import Exceptions.CustomException;
 import processing.core.PApplet;
 import controlP5.*;
 import processing.core.PShape;

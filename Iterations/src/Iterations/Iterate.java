@@ -2,6 +2,7 @@ package Iterations;
 
 import Equations.Equation;
 import Equations.EquationBuilder;
+import Exceptions.CustomException;
 import org.apache.commons.math3.complex.Complex;
 /**
  * Created by harold on 29.04.14.
@@ -65,10 +66,11 @@ public class Iterate {
         equation_set = true;
     }
 
-    public void setEquationSin(Complex input, double ex, double fx, double xpb)
+    public void setEquationSin(Complex input, double ex, double fx, double xpb) throws CustomException
     {
       //  equation = new Equation_Sin(parent, input, ex, fx, xpb);
         equation_set = true;
+        throw new CustomException("Iteration Ishikawa not implemented");
     }
 
     public void setIterationPicard(double u)
@@ -82,17 +84,18 @@ public class Iterate {
       //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
     }
 
-    public void setIterationMann(double alpha)
-    {
+    public void setIterationMann(double alpha) throws CustomException {
+
         if (equation_set)
         {
           //  iteration = new Iteration_Mann(parent,equation,alpha);
             iteration_set = true;
         }
       //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
+        throw new CustomException("Iteration Mann not implemented");
     }
 
-    public void setIterationIshikawa(double alpha, double beta)
+    public void setIterationIshikawa(double alpha, double beta) throws CustomException
     {
         if (equation_set)
         {
@@ -100,9 +103,10 @@ public class Iterate {
             iteration_set = true;
         }
       //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
+        throw new CustomException("Iteration Ishikawa not implemented");
     }
 
-    public void setIterationNoor(double alpha, double beta, double c)
+    public void setIterationNoor(double alpha, double beta, double c) throws CustomException
     {
         if (equation_set)
         {
@@ -110,9 +114,10 @@ public class Iterate {
             iteration_set = true;
         }
       //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
+        throw new CustomException("Iteration Noor not implemented");
     }
 
-    public void setIterationSuantai(double alpha, double beta, double a, double b, double c)
+    public void setIterationSuantai(double alpha, double beta, double a, double b, double c) throws CustomException
     {
         if (equation_set)
         {
@@ -120,9 +125,10 @@ public class Iterate {
             iteration_set = true;
         }
        // else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
+        throw new CustomException("Iteration Suntai not implemented");
     }
 
-    public void setIterationS(double alpha, double beta)
+    public void setIterationS(double alpha, double beta) throws CustomException
     {
         if (equation_set)
         {
@@ -130,9 +136,10 @@ public class Iterate {
             iteration_set = true;
         }
       //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
+        throw new CustomException("Iteration IterationS not implemented");
     }
 
-    public void setIterationTwoStepMann(double alpha, double beta)
+    public void setIterationTwoStepMann(double alpha, double beta) throws CustomException
     {
         if (equation_set)
         {
@@ -140,9 +147,10 @@ public class Iterate {
             iteration_set = true;
         }
       //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
+        throw new CustomException("Iteration Two Step Mann not implemented");
     }
 
-    public void setIterationSP(double alpha, double beta, double c)
+    public void setIterationSP(double alpha, double beta, double c) throws CustomException
     {
         if (equation_set)
         {
@@ -150,9 +158,10 @@ public class Iterate {
             iteration_set = true;
         }
        // else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
+        throw new CustomException("Iteration SP not implemented");
     }
 
-    public void setIterationNew(double alpha, double beta, double a, double b, double c)
+    public void setIterationNew(double alpha, double beta, double a, double b, double c) throws CustomException
     {
         if (equation_set)
         {
@@ -160,5 +169,6 @@ public class Iterate {
             iteration_set = true;
         }
      //   else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
+        throw new CustomException("Iteration NEW not implemented");
     }
 }

@@ -1,6 +1,7 @@
 package Components;
 import BiomorphGenerate.BiomorphGenerate;
 import BiomorphGenerate.Biomorph;
+import Exceptions.CustomException;
 import processing.core.PImage;
 
 /**

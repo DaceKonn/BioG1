@@ -1,6 +1,7 @@
 package BiomorphGenerate; /**
  * Created by harold on 27.04.14.
  */
+import Exceptions.CustomException;
 import Iterations.Iterate;
 
 import org.apache.commons.math3.complex.Complex;
