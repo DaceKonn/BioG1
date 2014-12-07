@@ -30,11 +30,12 @@ public class EquationBuilder {
             this.left.add(e.GetCopy());
     }
 
-    public void ChangeInput(Complex input)
+    public EquationBuilder ChangeInput(Complex input)
     {
         CloseAll();
         this.input = input;
         left.get(0).SetBaseInput(input);
+        return this;
     }
 
     public String GetLeft()
@@ -75,15 +76,16 @@ public class EquationBuilder {
         return left.get(0).GetEquationString();
     }
 
-    public void CloseAll()
+    public EquationBuilder CloseAll()
     {
         while (joins.size() > 0 && left.size() > 1)
         {
             Close();
         }
+        return this;
     }
 
-    public void Close()
+    public EquationBuilder Close()
     {
         if (joins.size() > 0 && left.size() > 1)
         {
@@ -111,74 +113,84 @@ public class EquationBuilder {
             left.remove(topLeft);
             joins.remove(topJoin);
         }
+        return this;
     }
 
-    private void Input(Complex input, boolean base)
+    private EquationBuilder Input(Complex input, boolean base)
     {
         if (base)
             left.add(new BaseInput(input));
         else
             left.add(new Input(input));
+        return this;
     }
 
-    public void Power(Complex param)
+    public EquationBuilder Power(Complex param)
     {
         int top = left.size()-1;
 
         EquationElement tmp = new Power(left.get(top), param);
         left.set(top, tmp);
+        return this;
     }
 
-    public void Sinus()
+    public EquationBuilder Sinus()
     {
         int top = left.size()-1;
 
         EquationElement tmp = new Sinus(left.get(top));
         left.set(top, tmp);
+        return this;
     }
 
-    public void Cosinus()
+    public EquationBuilder Cosinus()
     {
         int top = left.size()-1;
 
         EquationElement tmp = new Cosinus(left.get(top));
         left.set(top, tmp);
+        return this;
     }
 
-    public void Tangens()
+    public EquationBuilder Tangens()
     {
         int top = left.size()-1;
 
         EquationElement tmp = new Tangens(left.get(top));
         left.set(top, tmp);
+        return this;
     }
 
-    public void Add(Complex param, boolean base)
+    public EquationBuilder Add(Complex param, boolean base)
     {
         joins.add("add");
         Input(param, base);
+        return this;
     }
 
-    public void Multiply(Complex param, boolean base)
+    public EquationBuilder Multiply(Complex param, boolean base)
     {
         joins.add("multiply");
         Input(param, base);
+        return this;
     }
 
-    public void Devide(Complex param, boolean base)
+    public EquationBuilder Devide(Complex param, boolean base)
     {
         joins.add("devide");
         Input(param, base);
+        return this;
     }
 
-    public void PredefinedPolinomialSimple(double a, double b, double m, double n)
+    public EquationBuilder PredefinedPolinomialSimple(double a, double b, double m, double n)
     {
         Power(new Complex(m, 0.0));
-        //Multiply(new Complex(a, 0.0), false);
+        Multiply(new Complex(a, 0.0), false);
         Close();
-        //Add(input, true);
-        //Power(new Complex(n, 0.0));
-        //Multiply(new Complex(b, 0.0), false);
+        Add(input, true);
+        Power(new Complex(n, 0.0));
+        Multiply(new Complex(b, 0.0), false);
         CloseAll();
+        return this;
     }
 }

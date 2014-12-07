@@ -60,7 +60,6 @@ public class Iterate {
 
     public void setEquationPolynomial(Complex input, double ex, double fx, double xpa, double xpb)
     {
-        equation = new Equations.Polynomial(input, ex, fx, xpa, xpb);
         eqBuilder = new EquationBuilder(input);
         eqBuilder.PredefinedPolinomialSimple(ex, fx, xpa, xpb);
         equation_set = true;
