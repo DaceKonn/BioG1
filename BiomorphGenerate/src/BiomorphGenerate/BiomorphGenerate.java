@@ -27,15 +27,54 @@ public class BiomorphGenerate
     {
     }
 
+    //<editor-fold desc="With Section">
+    public BiomorphGenerate WithPointA(MyPoint pointA)
+    {
+        point_a = pointA;
+        return this;
+    }
+
+    public BiomorphGenerate WithPointB(MyPoint pointB)
+    {
+        point_b = pointB;
+        return this;
+    }
+
+    public BiomorphGenerate WithSize(int size)
+    {
+        this.size = size;
+        return this;
+    }
+
+    public BiomorphGenerate WithIterations(int iterations)
+    {
+        this.iterations = iterations;
+        return this;
+    }
+
+    public BiomorphGenerate WithThershold(double threshold)
+    {
+        this.threshold = threshold;
+        return this;
+    }
+
+    public BiomorphGenerate WithMethod(Iterate method)
+    {
+        this.method = method;
+        return this;
+    }
+
+    //</editor-fold>
+
     public void Default()
     {
         point_a = new MyPoint(-2.0, 2.0);
         point_b = new MyPoint(2.0, -2.0);
-        size = 2000;
+        size = 700;
         iterations = 30;
-        threshold = 10.0;
+        threshold = 100.0;
         method = new Iterate();
-        method.setEquationPolynomial(null,2.0,-1.5,8.5,9.5);
+        method.setEquationPolynomial(new Complex(0,0),1.0,0.0,1.0,0.0);
         method.setIterationPicard(0.5);
     }
 
@@ -46,12 +85,15 @@ public class BiomorphGenerate
             case 1:
                 if (FastMath.abs(x.getReal())+FastMath.abs(x.getImaginary())>threshold)
                     return true;
+                break;
             case 2:
                 if (x.abs() > threshold)
                     return true;
+                break;
             case 3:
                 if (FastMath.sqrt(FastMath.pow(x.getReal(),2)+FastMath.pow(x.getImaginary(),2))>threshold)
                     return true;
+                break;
         }
         return false;
     }
@@ -98,7 +140,7 @@ public class BiomorphGenerate
                     if (x.abs() > threshold)
                         return true;
                 case 3:
-                    if (FastMath.sqrt(FastMath.pow(x.getReal(),2)+FastMath.pow(x.getImaginary(),2))>threshold)
+                    if (FastMath.sqrt(FastMath.pow(x.getReal(), 2) + FastMath.pow(x.getImaginary(), 2))>threshold)
                         return true;
             }
             return false;
@@ -142,19 +184,19 @@ public class BiomorphGenerate
             for (int j = 0; j<size; j++)
             {
                 method.setInput(new Complex(i*step+point_a.GetX(),j*step-point_a.GetY()));
-
+                Complex rslt = new Complex(0.0,0.0);
                 tmp[i][j] = -1;
                 for (int l = 0; l<iterations;l++)
                 {
-                    method.Calculate(true);
-                    if (MagnitudeCheck(method.getInput(),magCheck))
+                    rslt = method.Calculate(true);
+                    if (MagnitudeCheck(rslt,magCheck))
                     {
                         tmp[i][j] = l;
                         break;
                     }
                 }
                 if (tmp[i][j] != -1)
-                    if ((FastMath.abs(method.getInput().getReal())<threshold||FastMath.abs(method.getInput().getImaginary())<threshold))
+                    if ((FastMath.abs(rslt.getReal())<threshold||FastMath.abs(rslt.getImaginary())<threshold))
                         tmp[i][j] = -1;
             }
         }

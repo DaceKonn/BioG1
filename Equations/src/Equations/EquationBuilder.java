@@ -33,6 +33,7 @@ public class EquationBuilder {
     public void ChangeInput(Complex input)
     {
         CloseAll();
+        this.input = input;
         left.get(0).SetBaseInput(input);
     }
 
@@ -59,7 +60,13 @@ public class EquationBuilder {
     public Complex GetValue()
     {
         CloseAll();
-        return left.get(0).GetValue();
+        Complex tmp; //= left.get(0).GetValue();
+        tmp = input.pow(3.0);//input.pow(2.0).multiply(1.0).add(input.pow(0.0).multiply(0.0));
+        if (tmp.isNaN())
+        {
+            tmp = new Complex(0.0,0.0);
+        }
+        return tmp;
     }
 
     public String GetEquationString()
@@ -167,11 +174,11 @@ public class EquationBuilder {
     public void PredefinedPolinomialSimple(double a, double b, double m, double n)
     {
         Power(new Complex(m, 0.0));
-        Multiply(new Complex(a, 0.0), false);
+        //Multiply(new Complex(a, 0.0), false);
         Close();
-        Add(input, true);
-        Power(new Complex(n, 0.0));
-        Multiply(new Complex(b, 0.0), false);
+        //Add(input, true);
+        //Power(new Complex(n, 0.0));
+        //Multiply(new Complex(b, 0.0), false);
         CloseAll();
     }
 }

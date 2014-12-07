@@ -38,15 +38,15 @@ public class ConsoleOverlay
         System.out.println(bm.GetGridString());
       //  System.out.println(bm.toString());
 
-     /*   long time = System.nanoTime();
+        long time = System.nanoTime();
         BiomorphGenerate bg = new BiomorphGenerate();
         bg.Default();
-        bm = bg.GetBiomorph(true);
+     /*   bm = bg.GetBiomorph(true);
         System.out.println("Generated multicore: "+((System.nanoTime() - time)/1000000));
         bm.GetGridString();
         System.out.println();
         time = (System.nanoTime() - time)/1000000;
-        System.out.println("Miliseconds elapsed: "+time);
+        System.out.println("Miliseconds elapsed: "+time);*/
 
         System.out.println();
 
@@ -55,9 +55,9 @@ public class ConsoleOverlay
         bg.Default();
         bm = bg.GetBiomorph(false);
         System.out.println("Generated singlecore: "+((System.nanoTime() - time)/1000000));
-        bm.GetGridString();
+     //  System.out.println( bm.GetGridString());
         System.out.println();
         time = (System.nanoTime() - time)/1000000;
-        System.out.println("Miliseconds elapsed: "+time);*/
+        System.out.println("Miliseconds elapsed: "+time);
     }
 }

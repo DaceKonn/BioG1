@@ -1,12 +1,14 @@
 package Iterations;
 
 import Equations.Equation;
+import Equations.EquationBuilder;
 import org.apache.commons.math3.complex.Complex;
 /**
  * Created by harold on 29.04.14.
  */
 public class Iterate {
     private Equation equation;
+    private EquationBuilder eqBuilder;
     private Iteration iteration;
     private boolean equation_set = false;
     private boolean iteration_set = false;
@@ -59,6 +61,8 @@ public class Iterate {
     public void setEquationPolynomial(Complex input, double ex, double fx, double xpa, double xpb)
     {
         equation = new Equations.Polynomial(input, ex, fx, xpa, xpb);
+        eqBuilder = new EquationBuilder(input);
+        eqBuilder.PredefinedPolinomialSimple(ex, fx, xpa, xpb);
         equation_set = true;
     }
 
@@ -72,7 +76,8 @@ public class Iterate {
     {
         if (equation_set)
         {
-            iteration = new Picard(equation,u);
+           // iteration = new Picard(equation,u);
+            iteration = new Picard(eqBuilder,u);
             iteration_set = true;
         }
       //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");
