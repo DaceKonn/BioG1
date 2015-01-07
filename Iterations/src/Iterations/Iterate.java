@@ -3,6 +3,7 @@ package Iterations;
 import Equations.Equation;
 import Equations.EquationBuilder;
 import Exceptions.CustomException;
+import Iterations.IterationTypes.*;
 import org.apache.commons.math3.complex.Complex;
 /**
  * Created by harold on 29.04.14.
@@ -10,7 +11,7 @@ import org.apache.commons.math3.complex.Complex;
 public class Iterate {
     private Equation equation;
     private EquationBuilder eqBuilder;
-    private Iteration iteration;
+    private AbstractIteration abstractIteration;
     private boolean equation_set = false;
     private boolean iteration_set = false;
 
@@ -25,7 +26,7 @@ public class Iterate {
     {
         if (equation_set&iteration_set)
         {
-            return iteration.Calculate(withUpdate);
+            return abstractIteration.Calculate(withUpdate);
         }
         else
         {
@@ -38,7 +39,7 @@ public class Iterate {
     {
         if (equation_set&iteration_set)
         {
-            return iteration.getInput();
+            return abstractIteration.getInput();
         }
         else
         {
@@ -51,7 +52,7 @@ public class Iterate {
     {
         if (equation_set&iteration_set)
         {
-            iteration.setInput(input);
+            abstractIteration.setInput(input);
         }
         else
         {
@@ -78,7 +79,7 @@ public class Iterate {
         if (equation_set)
         {
            // iteration = new Picard(equation,u);
-            iteration = new Picard(eqBuilder,u);
+            abstractIteration = new Picard(eqBuilder,u);
             iteration_set = true;
         }
       //  else parent.println("Error: In Iterations.Iterate - can't set iteration because the equation is not set");

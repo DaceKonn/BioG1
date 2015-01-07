@@ -1,14 +1,15 @@
-package Iterations;
+package Iterations.IterationTypes;
 
 import Equations.Equation;
 
 import Equations.EquationBuilder;
+import Iterations.AbstractIteration;
 import org.apache.commons.math3.complex.Complex;
 
 /**
  * Created by harold on 07.01.15.
  */
-public class Mann extends Iteration
+public class Mann extends AbstractIteration
 {
     private double alpha;
 

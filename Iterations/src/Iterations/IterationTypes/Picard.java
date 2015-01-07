@@ -1,14 +1,15 @@
-package Iterations;
+package Iterations.IterationTypes;
 
 import Equations.Equation;
 
 import Equations.EquationBuilder;
+import Iterations.AbstractIteration;
 import org.apache.commons.math3.complex.Complex;
 
 /**
  * Created by harold on 09.05.14.
  */
-public class Picard extends Iteration
+public class Picard extends AbstractIteration
 {
     private double u;
 

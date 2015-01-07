@@ -7,18 +7,18 @@ import org.apache.commons.math3.complex.Complex;
 /**
  * Created by harold on 29.04.14.
  */
-abstract public class Iteration
+abstract public class AbstractIteration
 {
     //private Complex input;
     protected Equation equation;
     protected EquationBuilder eqBuilder;
 
-    public Iteration(Equation equation)
+    public AbstractIteration(Equation equation)
     {
         //this.input = input;
         this.equation = equation;
     }
-    public Iteration(EquationBuilder equationBuilder)
+    public AbstractIteration(EquationBuilder equationBuilder)
     {
         //this.input = input;
         this.eqBuilder = new EquationBuilder(equationBuilder);

@@ -38,6 +38,11 @@ public class EquationBuilder {
         return this;
     }
 
+    public Complex GetInput()
+    {
+        return input;
+    }
+
     public String GetLeft()
     {
         String output = "";
