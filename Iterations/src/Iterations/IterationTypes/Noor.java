@@ -8,41 +8,44 @@ import org.apache.commons.math3.complex.Complex;
 /**
  * Created by harold on 07.01.15.
  */
-public class Ishikawa extends AbstractIteration
+public class Noor extends AbstractIteration
 {
     private double alpha;
     private double beta;
+    private double gamma;
 
-    public Ishikawa(Equation equation, double alpha, double beta)
+    public Noor(Equation equation, double alpha, double beta, double gamma)
     {
         super(equation);
         this.alpha = alpha;
         this.beta = beta;
+        this.gamma = gamma;
     }
-    public Ishikawa(EquationBuilder equationBuilder, double alpha, double beta)
+    public Noor(EquationBuilder equationBuilder, double alpha, double beta, double gamma)
     {
         super(equationBuilder);
         this.alpha = alpha;
         this.beta = beta;
+        this.gamma = gamma;
     }
 
     @Override
     public Complex Calculate(boolean withUpdate)
     {
 
-        //Complex tmp = equation.Calculate().add(u);
+
 
         Complex x = eqBuilder.GetInput();
 
-        Complex y = eqBuilder.GetInput().multiply(1-beta).add(eqBuilder.GetValue().multiply(beta));
+        Complex z = eqBuilder.GetInput().multiply(1-gamma).add(eqBuilder.GetValue().multiply(gamma));
 
-        //Complex tmp = eqBuilder.GetInput().multiply(1-beta).add(eqBuilder.GetValue().multiply(beta));
+        eqBuilder.ChangeInput(z);
+
+        Complex y = x.multiply(1-beta).add(eqBuilder.GetValue().multiply(beta));
 
         eqBuilder.ChangeInput(y);
 
-        Complex tmp = eqBuilder.GetInput().multiply(1-alpha).add(eqBuilder.GetValue().multiply(alpha));
-
-
+        Complex tmp = x.multiply(1-alpha).add(eqBuilder.GetValue().multiply(alpha));
 
         if (withUpdate)
         {

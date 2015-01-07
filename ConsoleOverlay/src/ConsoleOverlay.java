@@ -26,10 +26,13 @@ public class ConsoleOverlay
         System.out.println("Equation: " + eq.GetEquationString());
         System.out.println("Result: "+eq.GetValue());
         eq.ChangeInput(new Complex(3.0, 3.0));
-        System.out.println("Equation: " + eq.GetEquationString());
-        System.out.println("Result: "+eq.GetValue());
+       // System.out.println("Input: "+eqb.GetInput());
+        System.out.println("Equation: " + eqb.GetEquationString());
+        System.out.println("Result: "+eqb.GetValue());
+       // System.out.println("Input: "+eqb.GetInput());
         System.out.println("Equation: "+eqb.GetEquationString());
         System.out.println("Result: "+eqb.GetValue());
+       // System.out.println("Input: "+eqb.GetInput());
         System.out.println(new Complex(1.0,1.0).pow(new Complex(-2.0, 2.0)));
 
 

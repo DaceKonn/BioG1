@@ -66,8 +66,8 @@ public class EquationBuilder {
     public Complex GetValue()
     {
         CloseAll();
-        Complex tmp; //= left.get(0).GetValue();
-        tmp = input.pow(3.0);//input.pow(2.0).multiply(1.0).add(input.pow(0.0).multiply(0.0));
+        Complex tmp = left.get(0).GetValue();
+        //tmp = input.pow(2.0);//input.pow(2.0).multiply(1.0).add(input.pow(0.0).multiply(0.0));
         if (tmp.isNaN())
         {
             tmp = new Complex(0.0,0.0);

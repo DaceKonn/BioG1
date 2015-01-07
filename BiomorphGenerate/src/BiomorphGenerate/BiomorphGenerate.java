@@ -75,7 +75,7 @@ public class BiomorphGenerate
         iterations = 30;
         threshold = 100.0;
         method = new Iterate();
-        method.setEquationPolynomial(new Complex(0,0),1.0,0.0,1.0,0.0);
+        method.setEquationPolynomial(new Complex(0,0),1.0,0.0,3.0,0.0);
         method.setIterationPicard(0.5);
     }
 
