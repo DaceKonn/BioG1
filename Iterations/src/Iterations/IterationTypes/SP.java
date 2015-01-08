@@ -6,35 +6,46 @@ import Iterations.AbstractIteration;
 import org.apache.commons.math3.complex.Complex;
 
 /**
- * Created by harold on 07.01.15.
+ * Created by harold on 08.01.15.
  */
-public class S extends AbstractIteration
+public class SP extends AbstractIteration
 {
     private double alpha;
     private double beta;
+    private double gamma;
 
-    public S (Equation equation, double alpha, double beta)
+    public SP(Equation equation, double alpha, double beta, double gamma)
     {
         super(equation);
         this.alpha = alpha;
         this.beta = beta;
+        this.gamma = gamma;
     }
-    public S (EquationBuilder equationBuilder, double alpha, double beta)
+    public SP(EquationBuilder equationBuilder, double alpha, double beta, double gamma)
     {
         super(equationBuilder);
         this.alpha = alpha;
         this.beta = beta;
+        this.gamma = gamma;
     }
 
     @Override
     public Complex Calculate(boolean withUpdate)
     {
 
+
+
         Complex x = eqBuilder.GetInput();
 
-        Complex y = eqBuilder.GetInput().multiply(1-beta).add(eqBuilder.GetValue().multiply(beta));
+        Complex z = eqBuilder.GetInput().multiply(1-gamma).add(eqBuilder.GetValue().multiply(gamma));
 
-        Complex tmp = eqBuilder.GetValue().multiply(1 - alpha).add(eqBuilder.ChangeInput(y).GetValue().multiply(alpha));
+        eqBuilder.ChangeInput(z);
+
+        Complex y = eqBuilder.GetInput().multiply(1 - beta).add(eqBuilder.GetValue().multiply(beta));
+
+        eqBuilder.ChangeInput(y);
+
+        Complex tmp = eqBuilder.GetInput().multiply(1 - alpha).add(eqBuilder.GetValue().multiply(alpha));
 
         if (withUpdate)
         {
