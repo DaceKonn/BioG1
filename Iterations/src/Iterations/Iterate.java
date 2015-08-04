@@ -64,6 +64,7 @@ public class Iterate {
         }
     }
 
+    //TODO Iterate - set equations are fucked up - they don't fit to equation builder idea!!!!!!
     public void setEquationPolynomial(Complex input, double ex, double fx, double xpa, double xpb)
     {
         eqBuilder = new EquationBuilder(input);
@@ -75,8 +76,9 @@ public class Iterate {
     public void setEquationSin(Complex input, double ex, double fx, double xpb) throws CustomException
     {
       //  equation = new Equation_Sin(parent, input, ex, fx, xpb);
+        eqBuilder = new EquationBuilder(input);
         equation_set = true;
-        throw new CustomException("Iteration Ishikawa not implemented");
+        throw new CustomException("Equation Sin not implemented");
     }
 
     //TODO Iterate - setIterationPicard

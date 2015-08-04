@@ -2,6 +2,8 @@ package BiomorphGenerate;
 
 import java.util.Arrays;
 
+//TODO Biomorph - description
+//TODO Biomorph - serialize
 public class Biomorph
 {
     private int size;
